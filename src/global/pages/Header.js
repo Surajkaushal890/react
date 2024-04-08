@@ -5,7 +5,7 @@ function Header() {
   return (
     <div className='header'>
       <div className='p-0 bg-colorNav'>
-        <Navbar expand="lg" className='navbar navbar-expand-lg navbar-light px-3'>
+        <Navbar expand="lg" className='navbar navbar-expand-lg navbar-light p-0'>
           <Container fluid>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="navbarNavAltMarkup">

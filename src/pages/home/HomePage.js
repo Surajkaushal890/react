@@ -55,7 +55,7 @@ function HomePageMain() {
                   Rated4.6/5.0 by 238 Happy Customers
                 </p>
                 <h3 className="text-white">Value Proposnon Featuring Benefit </h3>
-                <p className="heroText text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                <p className="heroText text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                 <div className="iconBox">
                   <p className="text-white mb-0"><Image src={`${process.env.PUBLIC_URL}/img/checked.png`} alt="Check"></Image>Text ever since the 1500s,</p>
                   <p className="text-white mb-0"><Image src={`${process.env.PUBLIC_URL}/img/checked.png`} alt="Check"></Image>Text ever since the 1500s,</p>
@@ -106,7 +106,7 @@ function HomePageMain() {
                 <Form.Group className="mb-3">
                   <Form.Control type="tel" id="phoneField" name="phoneField" placeholder="Enter your phone number" required ></Form.Control>
                 </Form.Group>
-                <Button type="submit" className="btn btn-primary w-100">Submit</Button>
+                <Button type="submit" className="btn btn-primary w-100" style={{backgroundColor: '#153f01', borderColor:'#153f01'}}>Submit</Button>
               </Form>
             </Col>
           </Row>
@@ -119,7 +119,7 @@ function HomePageMain() {
       <Container className="mt-5">
         <Row>
           <Col md={6}>
-            <Image src={`${process.env.PUBLIC_URL}/img/rightImg.png`} alt="textImg" fluid ></Image>
+            <Image src={`${process.env.PUBLIC_URL}/img/rightImg.png`} alt="textImg"></Image>
           </Col>
           <Col md={6}>
             <h3 style={{ color: '#153f01' }}>Unlock the Beauty Within your landscape</h3>

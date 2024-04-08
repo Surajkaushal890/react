@@ -29,12 +29,12 @@ h2 {
 
 .phoneNumb {
   text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff, 1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
-  color: #087af4;
+  color: #153f01;
 }
 
 .headBorder {
   height: 12px;
-  background: #087af4;
+  background: #153f01;
   border: 3px solid #fff;
   margin-top: -14px;
   z-index: 2;
