@@ -28,6 +28,28 @@ function HomePageMain() {
       }
     ]
   };
+
+  const sliderSettingsLogo = {
+    centerMode: true,
+    arrows: false,
+    dots: false,
+    centerPadding: '0px',
+    slidesToShow: 5,
+    autoplay: true,
+    autoplaySpeed: 1000,
+    responsive: [
+      {
+        breakpoint: 786,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 2
+        }
+      }
+    ]
+  };
+
   return (
     <>
       <Header />
@@ -52,7 +74,7 @@ function HomePageMain() {
               <div className="top-text">
                 <p className="text-white">
                   <span className="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734; </span>
-                  Rated4.6/5.0 by 238 Happy Customers
+                  Rated 4.6/5.0 by 238 Happy Customers
                 </p>
                 <h3 className="text-white">Value Proposnon Featuring Benefit </h3>
                 <p className="heroText text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -106,7 +128,7 @@ function HomePageMain() {
                 <Form.Group className="mb-3">
                   <Form.Control type="tel" id="phoneField" name="phoneField" placeholder="Enter your phone number" required ></Form.Control>
                 </Form.Group>
-                <Button type="submit" className="btn btn-primary w-100" style={{backgroundColor: '#153f01', borderColor:'#153f01'}}>Submit</Button>
+                <Button type="submit" className="btn btn-primary w-100" style={{ backgroundColor: '#153f01', borderColor: '#153f01' }}>Submit</Button>
               </Form>
             </Col>
           </Row>
@@ -114,9 +136,57 @@ function HomePageMain() {
       </div>
       {/* End Banner section */}
 
+      {/* Recommended by */}
+
+      <div className="slider-image-section py-2" style={{backgroundColor:"#ccc"}}>
+        <Container>
+          <Row className='align-items-center'>
+            <Col md={3}>
+              <div className="slide-content">
+                <p>As recommended by:</p>
+              </div>
+            </Col>
+            <Col md={9}>
+              <Slider {...sliderSettingsLogo}>
+                <div>
+                  <Image className='w-100 logoSlider' src={`${process.env.PUBLIC_URL}/img/dummy-logo-08.png`} alt="Logo"></Image>
+                </div>
+                <div>
+                  <Image className='w-100 logoSlider' src={`${process.env.PUBLIC_URL}/img/dummy-logo-08.png`} alt="Logo"></Image>
+                </div>
+                <div>
+                  <Image className='w-100 logoSlider' src={`${process.env.PUBLIC_URL}/img/dummy-logo-08.png`} alt="Logo"></Image>
+                </div>
+                <div>
+                  <Image className='w-100 logoSlider' src={`${process.env.PUBLIC_URL}/img/dummy-logo-08.png`} alt="Logo"></Image>
+                </div>
+                <div>
+                  <Image className='w-100 logoSlider' src={`${process.env.PUBLIC_URL}/img/dummy-logo-08.png`} alt="Logo"></Image>
+                </div>
+                <div>
+                  <Image className='w-100 logoSlider' src={`${process.env.PUBLIC_URL}/img/dummy-logo-08.png`} alt="Logo"></Image>
+                </div>
+                <div>
+                  <Image className='w-100 logoSlider' src={`${process.env.PUBLIC_URL}/img/dummy-logo-08.png`} alt="Logo"></Image>
+                </div>
+                <div>
+                  <Image className='w-100 logoSlider' src={`${process.env.PUBLIC_URL}/img/dummy-logo-08.png`} alt="Logo"></Image>
+                </div>
+                <div>
+                  <Image className='w-100 logoSlider' src={`${process.env.PUBLIC_URL}/img/dummy-logo-08.png`} alt="Logo"></Image>
+                </div>
+              </Slider>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+
+
+      {/* End recommended by */}
+
       {/* About section */}
 
-      <Container className="mt-5">
+      <Container className="my-5">
         <Row>
           <Col md={6}>
             <Image src={`${process.env.PUBLIC_URL}/img/rightImg.png`} alt="textImg"></Image>
@@ -138,10 +208,10 @@ function HomePageMain() {
                 <Image src={`${process.env.PUBLIC_URL}/img/check.png`} alt="check"></Image> We Are Harmonizing Nature's Symphony
               </h6>
               <h6 className="mb-2" style={{ color: '#153f01' }}>
-                <Image src={`${process.env.PUBLIC_URL}/img/check.png`}  alt="check"></Image> Nature's Artistry Is Our Passion
+                <Image src={`${process.env.PUBLIC_URL}/img/check.png`} alt="check"></Image> Nature's Artistry Is Our Passion
               </h6>
               <h6 className="mb-2" style={{ color: '#153f01' }}>
-                <Image src={`${process.env.PUBLIC_URL}/img/check.png`}  alt="check"></Image> We Transform Your Yard
+                <Image src={`${process.env.PUBLIC_URL}/img/check.png`} alt="check"></Image> We Transform Your Yard
               </h6>
             </div>
             <Button className="btn btn-secondary plant px-4 mt-4" style={{ backgroundColor: '#153f01' }}>(415) 000-0000</Button>
@@ -246,13 +316,13 @@ function HomePageMain() {
 
       {/* Slider sec */}
 
-      <div className="slider-section pt-5">
+      <div className="slider-section py-5">
         <Container>
           <Row>
             <Col md={3} className="left-content mt-4">
               <h5>Testimonial</h5>
               <h2>What Our Clients Say?</h2>
-              <p>Lorem Lorem Lorem LoremLorem Lorem LoremLoremLoremLoremLorem Lorem Lorem Lorem</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
             </Col>
             <Col md={9} className="right-content position-relative">
               <Slider {...sliderSettings}>
@@ -385,7 +455,7 @@ function HomePageMain() {
 
       {/* Section FAQ */}
 
-      <div className="faQwrapper py-5 m-5">
+      <div className="faQwrapper py-5 my-5">
         <Container>
           <Row>
             <Col md={5} className="d-flex align-items-center">
