@@ -1,38 +1,60 @@
-.App {
-  text-align: center;
+body {
+  font-family: 'Prompt', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h2 {
+  font-size: clamp(2rem, 1.5rem + 2.5vw, 4.5rem) !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.bg-colorNav {
+  background-color: #153f01;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.bg-contactnumb {
+  background-image: url('../public/img/banner_contact.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.App-link {
-  color: #61dafb;
+.heroText {
+  max-width: 80%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.top-text {
+  background: #0000002e;
+  padding: 35px;
+  border-radius: 20px;
+}
+
+.phoneNumb {
+  text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff, 1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+  color: #087af4;
+}
+
+.headBorder {
+  height: 12px;
+  background: #087af4;
+  border: 3px solid #fff;
+  margin-top: -14px;
+  z-index: 2;
+}
+
+.bg-hero {
+  background-image: url('../public/img/banner.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.iconBox img {
+  width: 15px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.formLeft form {
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
 }
