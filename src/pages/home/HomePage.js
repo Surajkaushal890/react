@@ -135,13 +135,13 @@ function HomePageMain() {
             </p>
             <div className="iconBox">
               <h6 className=" mb-2" style={{ color: '#153f01' }}>
-                <Image src={`${process.env.PUBLIC_URL}/img/check.png`} /> We Are Harmonizing Nature's Symphony
+                <Image src={`${process.env.PUBLIC_URL}/img/check.png`} alt="check"></Image> We Are Harmonizing Nature's Symphony
               </h6>
               <h6 className="mb-2" style={{ color: '#153f01' }}>
-                <Image src={`${process.env.PUBLIC_URL}/img/check.png`} /> Nature's Artistry Is Our Passion
+                <Image src={`${process.env.PUBLIC_URL}/img/check.png`}  alt="check"></Image> Nature's Artistry Is Our Passion
               </h6>
               <h6 className="mb-2" style={{ color: '#153f01' }}>
-                <Image src={`${process.env.PUBLIC_URL}/img/check.png`} /> We Transform Your Yard
+                <Image src={`${process.env.PUBLIC_URL}/img/check.png`}  alt="check"></Image> We Transform Your Yard
               </h6>
             </div>
             <Button className="btn btn-secondary plant px-4 mt-4" style={{ backgroundColor: '#153f01' }}>(415) 000-0000</Button>
@@ -271,7 +271,7 @@ function HomePageMain() {
                           Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                           .</p>
                         <div className="bottom-content d-flex gap-2 position-relative">
-                          <Image src={`${process.env.PUBLIC_URL}/img/clientimg.webp`}></Image>
+                          <Image src={`${process.env.PUBLIC_URL}/img/clientimg.webp`} alt="clientimage"></Image>
                           <div className="content">
                             <div className=''>
                               <h5>Client Name</h5>
