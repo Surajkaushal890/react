@@ -84,7 +84,7 @@ function HomePageMain() {
                   <p className="text-white  mb-0"><Image src={`${process.env.PUBLIC_URL}/img/checked.png`} alt="Check"></Image>Text ever since the 1500s,</p>
                 </div>
               </div>
-              <div className="text-center text-lg-start shadow-1-strong rounded mt-4 text-black">
+              <div className="text-center text-lg-start shadow-1-strong rounded mt-4 text-black d-md-block d-none">
                 <div className="card">
                   <div className="card-body">
                     <Row>
@@ -101,7 +101,7 @@ function HomePageMain() {
                 </div>
               </div>
             </Col>
-            <Col md={5} className="p-md-5 pt-0 formLeft">
+            <Col md={5} className="pt-0 formLeft">
               <Form>
                 <h4 className="text-black">FREE Instant Quote Plus Special Bonus Coupon</h4>
                 <Form.Group className="mb-3 text-black">
@@ -130,6 +130,22 @@ function HomePageMain() {
                 </Form.Group>
                 <Button type="submit" className="btn btn-primary w-100" style={{ backgroundColor: '#153f01', borderColor: '#153f01' }}>Submit</Button>
               </Form>
+              <div className="text-center text-lg-start shadow-1-strong rounded mt-4 text-black d-md-none">
+                <div className="card">
+                  <div className="card-body">
+                    <Row>
+                      <Col lg={4} className="d-flex justify-content-center align-items-center mb-4 mb-lg-0">
+                        <Image src={`${process.env.PUBLIC_URL}/img/clientimg.webp`} className="rounded-circle img-fluid shadow-1" alt="woman avatar" width="120" height="120" ></Image>
+                      </Col>
+                      <Col lg={8}>
+                        <p className="text-muted fw-light mb-2 text-black"> Id quamapiente molestiae numquam quas, voluptates omnis nulla ea odio quia similique corrupti magnam.</p>
+                        <p className="fw-bold lead mb-2"><strong>Anna Smith</strong></p>
+                        <p className="text-warning m-0">&#9733; &#9733; &#9733; &#9733; &#9734;</p>
+                      </Col>
+                    </Row>
+                  </div>
+                </div>
+              </div>
             </Col>
           </Row>
         </Container>
@@ -138,7 +154,7 @@ function HomePageMain() {
 
       {/* Recommended by */}
 
-      <div className="slider-image-section py-2" style={{backgroundColor:"#e6e6e6"}}>
+      <div className="slider-image-section py-2" style={{ backgroundColor: "#e6e6e6" }}>
         <Container>
           <Row className='align-items-center'>
             <Col md={3}>
