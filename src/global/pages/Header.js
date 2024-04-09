@@ -4,10 +4,10 @@ import { Navbar, Container, Nav } from 'react-bootstrap';
 function Header() {
   return (
     <div className='header'>
-      <div className='p-0 bg-colorNav'>
+      <div className='bg-colorNav'>
         <Navbar expand="lg" className='navbar navbar-expand-lg navbar-light p-0'>
           <Container fluid>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Toggle aria-controls="basic-navbar-nav" className='ms-auto' style={{color:'#fff', backgroundColor:'#fff'}}/>
             <Navbar.Collapse id="navbarNavAltMarkup">
               <Nav className="ms-auto">
                 <Nav.Link href="#" className="text-white">Home</Nav.Link>

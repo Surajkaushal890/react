@@ -36,7 +36,7 @@ function HomePageMain() {
     centerPadding: '0px',
     slidesToShow: 5,
     autoplay: true,
-    autoplaySpeed: 1000,
+    autoplaySpeed: 3000,
     responsive: [
       {
         breakpoint: 786,
@@ -87,7 +87,7 @@ function HomePageMain() {
               <div className="text-center text-lg-start shadow-1-strong rounded mt-4 text-black">
                 <div className="card">
                   <div className="card-body">
-                    <Row className="row">
+                    <Row>
                       <Col lg={4} className="d-flex justify-content-center align-items-center mb-4 mb-lg-0">
                         <Image src={`${process.env.PUBLIC_URL}/img/clientimg.webp`} className="rounded-circle img-fluid shadow-1" alt="woman avatar" width="120" height="120" ></Image>
                       </Col>
@@ -101,7 +101,7 @@ function HomePageMain() {
                 </div>
               </div>
             </Col>
-            <Col md={5} className="p-5 pt-0 formLeft">
+            <Col md={5} className="p-md-5 pt-0 formLeft">
               <Form>
                 <h4 className="text-black">FREE Instant Quote Plus Special Bonus Coupon</h4>
                 <Form.Group className="mb-3 text-black">
@@ -138,12 +138,12 @@ function HomePageMain() {
 
       {/* Recommended by */}
 
-      <div className="slider-image-section py-2" style={{backgroundColor:"#ccc"}}>
+      <div className="slider-image-section py-2" style={{backgroundColor:"#e6e6e6"}}>
         <Container>
           <Row className='align-items-center'>
             <Col md={3}>
               <div className="slide-content">
-                <p>As recommended by:</p>
+                <h4>As recommended by:</h4>
               </div>
             </Col>
             <Col md={9}>
@@ -189,7 +189,7 @@ function HomePageMain() {
       <Container className="my-5">
         <Row>
           <Col md={6}>
-            <Image src={`${process.env.PUBLIC_URL}/img/rightImg.png`} alt="textImg"></Image>
+            <Image src={`${process.env.PUBLIC_URL}/img/rightImg.png`} alt="textImg" className='w-100'></Image>
           </Col>
           <Col md={6}>
             <h3 style={{ color: '#153f01' }}>Unlock the Beauty Within your landscape</h3>
@@ -401,7 +401,7 @@ function HomePageMain() {
                           Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                           .</p>
                         <div className="bottom-content d-flex gap-2 position-relative">
-                          <Image src={`${process.env.PUBLIC_URL}/img/clientimg.webp`}></Image>
+                          <Image src={`${process.env.PUBLIC_URL}/img/clientimg.webp`} alt="Clinet image"></Image>
                           <div className="content">
                             <div className=''>
                               <h5>Client Name</h5>
@@ -431,7 +431,7 @@ function HomePageMain() {
                           Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                           .</p>
                         <div className="bottom-content d-flex gap-2 position-relative">
-                          <Image src={`${process.env.PUBLIC_URL}/img/clientimg.webp`}></Image>
+                          <Image src={`${process.env.PUBLIC_URL}/img/clientimg.webp`} alt="client image"></Image>
                           <div className="content">
                             <div className=''>
                               <h5>Client Name</h5>

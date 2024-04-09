@@ -5,17 +5,22 @@ body {
 h2 {
   font-size: clamp(2rem, 1.5rem + 2.5vw, 4.5rem) !important;
 }
+
 h3 {
   font-size: clamp(1.75rem, 1.5rem + 1.25vw, 3rem) !important;
 }
+
 h5 {
   font-size: clamp(0.875rem, 0.825rem + 0.25vw, 1.125rem) !important;
 }
+
 .top-text h3 {
-	font-size: clamp(1.5rem, 1.4rem + 0.5vw, 2rem) !important;
+  font-size: clamp(1.5rem, 1.4rem + 0.5vw, 2rem) !important;
 }
+
 .bg-colorNav {
   background-color: #153f01;
+  padding: 0px;
 }
 
 .bg-contactnumb {
@@ -163,20 +168,21 @@ h5 {
 }
 
 .slider-section .left-content h2 {
-	font-size: 45px !important;
-	font-weight: 600;
-	color: #fff;
+  font-size: 45px !important;
+  font-weight: 600;
+  color: #fff;
 }
 
 .slider-section .slick-arrow {
-	display: none !important;
+  display: none !important;
 }
 
 
 .slider-section .bottom-content .fa {
-	right: 0px;
-	bottom: 0px;
+  right: 0px;
+  bottom: 0px;
 }
+
 .slider-section .left-content p {
   font-size: 18px;
   font-weight: 400;
@@ -233,7 +239,28 @@ h5 {
 }
 
 .logoSlider {
-	mix-blend-mode: color-burn;
-	aspect-ratio: 3/2;
-	object-fit: contain;
+  mix-blend-mode: color-burn;
+  aspect-ratio: 3/2;
+  object-fit: contain;
+}
+
+@media (max-width: 1000px) {
+
+  .bg-colorNav {
+    padding: 5px 0px;
+  }
+
+  .formLeft {
+    margin-top: 25px;
+  }
+
+  .slider-image-section h4 {
+    text-align: center;
+    padding-top: 10px;
+  }
+
+  .servicesWrapper {
+    border-radius: 10px;
+  }
+
 }
