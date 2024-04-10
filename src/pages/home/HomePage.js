@@ -7,6 +7,7 @@ import Slider from "react-slick";
 import { toast } from 'react-toastify';
 import Accordion from 'react-bootstrap/Accordion';
 import http from '../../https';
+import Spinner from 'react-bootstrap/Spinner';
 
 function HomePageMain() {
 
@@ -60,6 +61,7 @@ function HomePageMain() {
     userPhoneNumber: '',
   });
 
+  const [loading, setLoading] = useState(false);
 
   const treeServiesNeed = (event) => {
     setDataMain({ ...dataFormMain, services: event.target.value });
@@ -98,18 +100,19 @@ function HomePageMain() {
     } else if (!isValidEmail(dataFormMain.userEmail)) {
       toast.error('Please enter a valid email address.');
     } else {
+      setLoading(true);
       try {
         const response = await http.post('/send-email', dataFormMain);
         if (response.data && response.data.message) {
           toast.success(response.data.message);
-          /*setDataMain({
+          setDataMain({
             ...dataFormMain,
             services: 'treeCutting',
             soon_services_do_you_need: '',
             userEmail: '',
             userName: '',
             userPhoneNumber: '',
-          });*/
+          });
         }
       } catch (error) {
         if (error.response && error.response.data && error.response.data.message) {
@@ -117,6 +120,8 @@ function HomePageMain() {
         } else {
           toast.error('An error occurred. Please try again later.');
         }
+      } finally {
+        setLoading(false);
       }
     }
   }
@@ -184,20 +189,26 @@ function HomePageMain() {
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <Form.Label className="text-black">How soon do you need our services?</Form.Label><br></br>
-                  <Form.Check inline label="In 2 days" onChange={needServices} type="radio" id="radio1" name="radioGroup" value="2days" ></Form.Check>
-                  <Form.Check inline label="In 1 week" onChange={needServices} type="radio" id="radio2" name="radioGroup" value="1week" ></Form.Check>
-                  <Form.Check inline label="In 2 weeks" onChange={needServices} type="radio" id="radio3" name="radioGroup" value="2weeks" ></Form.Check>
+                  <Form.Check inline label="In 2 days" checked={dataFormMain.soon_services_do_you_need === "2days"} onChange={needServices} type="radio" id="radio1" name="radioGroup" value="2days" ></Form.Check>
+                  <Form.Check inline label="In 1 week" checked={dataFormMain.soon_services_do_you_need === "1week"} onChange={needServices} type="radio" id="radio2" name="radioGroup" value="1week" ></Form.Check>
+                  <Form.Check inline label="In 2 weeks" checked={dataFormMain.soon_services_do_you_need === "2weeks"} onChange={needServices} type="radio" id="radio3" name="radioGroup" value="2weeks" ></Form.Check>
                 </Form.Group>
                 <Form.Group className="mb-3">
-                  <Form.Control type="text" onChange={userName} id="nameField" name="nameField" placeholder="Enter your name" ></Form.Control>
+                  <Form.Control type="text" onChange={userName} id="nameField" value={dataFormMain.userName} name="nameField" placeholder="Enter your name" ></Form.Control>
                 </Form.Group>
                 <Form.Group className="mb-3">
-                  <Form.Control type="email" id="emailField" onChange={userEmail} name="emailField" placeholder="Enter your email address" ></Form.Control>
+                  <Form.Control type="email" id="emailField" onChange={userEmail} value={dataFormMain.userEmail} name="emailField" placeholder="Enter your email address" ></Form.Control>
                 </Form.Group>
                 <Form.Group className="mb-3">
-                  <Form.Control type="tel" id="phoneField" onChange={userPhone} name="phoneField" placeholder="Enter your phone number" ></Form.Control>
+                  <Form.Control type="tel" id="phoneField" onChange={userPhone} value={dataFormMain.userPhoneNumber} name="phoneField" placeholder="Enter your phone number" ></Form.Control>
                 </Form.Group>
-                <Button type="submit" className="btn btn-primary w-100" style={{ backgroundColor: '#153f01', borderColor: '#153f01' }}>Submit</Button>
+                <Button type="submit" className="btn btn-primary w-100" style={{ backgroundColor: '#153f01', borderColor: '#153f01', height: "40px" }}>
+                  {loading ? (
+                    <Spinner animation="border" size="sm" />
+                  ) : (
+                    <span>Submit</span>
+                  )}
+                </Button>
               </Form>
               <div className="text-center text-lg-start shadow-1-strong rounded mt-4 text-black d-md-none">
                 <div className="card">
