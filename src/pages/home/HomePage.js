@@ -8,6 +8,7 @@ import { toast } from 'react-toastify';
 import Accordion from 'react-bootstrap/Accordion';
 import http from '../../https';
 import Spinner from 'react-bootstrap/Spinner';
+import FloatingBtn from '../../common/floatingBtn'
 
 function HomePageMain() {
 
@@ -129,7 +130,7 @@ function HomePageMain() {
   return (
     <>
       <Header />
-
+      <FloatingBtn/>
       {/* Contact number section */}
       <Container fluid className="bg-contactnumb pt-2">
         <Row>
