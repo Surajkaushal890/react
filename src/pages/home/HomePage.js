@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../../global/pages/Header'
 import Footer from '../../global/pages/Footer'
 import { Container, Row, Col } from 'react-bootstrap';
 import { Form, Button, Image } from 'react-bootstrap';
 import Slider from "react-slick";
+import { toast } from 'react-toastify';
 import Accordion from 'react-bootstrap/Accordion';
+import http from '../../https';
 
 function HomePageMain() {
 
@@ -49,6 +51,75 @@ function HomePageMain() {
       }
     ]
   };
+
+  const [dataFormMain, setDataMain] = useState({
+    services: 'treeCutting',
+    soon_services_do_you_need: '',
+    userEmail: '',
+    userName: '',
+    userPhoneNumber: '',
+  });
+
+
+  const treeServiesNeed = (event) => {
+    setDataMain({ ...dataFormMain, services: event.target.value });
+  };
+
+  const needServices = (event) => {
+    setDataMain({ ...dataFormMain, soon_services_do_you_need: event.target.value });
+  };
+
+  const userEmail = (event) => {
+    setDataMain({ ...dataFormMain, userEmail: event.target.value });
+  };
+
+  const userName = (event) => {
+    setDataMain({ ...dataFormMain, userName: event.target.value });
+  };
+
+  const userPhone = (event) => {
+    setDataMain({ ...dataFormMain, userPhoneNumber: event.target.value });
+  };
+
+  const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  /*const isValidPhoneNumber = (phoneNumber) => {
+    const phoneRegex = /^\d{10}$/;
+    return phoneRegex.test(phoneNumber);
+  }*/
+
+  const handelSubmitmain = async (event) => {
+    event.preventDefault();
+    if (!dataFormMain.userName || !dataFormMain.services || !dataFormMain.soon_services_do_you_need || !dataFormMain.userEmail || !dataFormMain.userPhoneNumber) {
+      toast.error('Please fill all fields.');
+    } else if (!isValidEmail(dataFormMain.userEmail)) {
+      toast.error('Please enter a valid email address.');
+    } else {
+      try {
+        const response = await http.post('/send-email', dataFormMain);
+        if (response.data && response.data.message) {
+          toast.success(response.data.message);
+          /*setDataMain({
+            ...dataFormMain,
+            services: 'treeCutting',
+            soon_services_do_you_need: '',
+            userEmail: '',
+            userName: '',
+            userPhoneNumber: '',
+          });*/
+        }
+      } catch (error) {
+        if (error.response && error.response.data && error.response.data.message) {
+          toast.error(error.response.data.message);
+        } else {
+          toast.error('An error occurred. Please try again later.');
+        }
+      }
+    }
+  }
 
   return (
     <>
@@ -102,31 +173,29 @@ function HomePageMain() {
               </div>
             </Col>
             <Col md={5} className="pt-0 formLeft">
-              <Form>
+              <Form onSubmit={handelSubmitmain}>
                 <h4 className="text-black">FREE Instant Quote Plus Special Bonus Coupon</h4>
                 <Form.Group className="mb-3 text-black">
                   <Form.Label>Tree Services Needed</Form.Label>
-                  <Form.Control as="select" id="selectField" name="selectField">
-                    <option selected>Tree Services Needed</option>
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
+                  <Form.Control as="select" id="selectField" name="selectField" onChange={treeServiesNeed}>
+                    <option value="treeCutting">Tree Cutting</option>
+                    <option value="totalCare">Total Care</option>
                   </Form.Control>
                 </Form.Group>
                 <Form.Group className="mb-3">
                   <Form.Label className="text-black">How soon do you need our services?</Form.Label><br></br>
-                  <Form.Check inline label="Radio 1" type="radio" id="radio1" name="radioGroup" value="radio1" ></Form.Check>
-                  <Form.Check inline label="Radio 2" type="radio" id="radio2" name="radioGroup" value="radio2" ></Form.Check>
-                  <Form.Check inline label="Radio 3" type="radio" id="radio3" name="radioGroup" value="radio3" ></Form.Check>
+                  <Form.Check inline label="In 2 days" onChange={needServices} type="radio" id="radio1" name="radioGroup" value="2days" ></Form.Check>
+                  <Form.Check inline label="In 1 week" onChange={needServices} type="radio" id="radio2" name="radioGroup" value="1week" ></Form.Check>
+                  <Form.Check inline label="In 2 weeks" onChange={needServices} type="radio" id="radio3" name="radioGroup" value="2weeks" ></Form.Check>
                 </Form.Group>
                 <Form.Group className="mb-3">
-                  <Form.Control type="text" id="nameField" name="nameField" placeholder="Enter your name" required ></Form.Control>
+                  <Form.Control type="text" onChange={userName} id="nameField" name="nameField" placeholder="Enter your name" ></Form.Control>
                 </Form.Group>
                 <Form.Group className="mb-3">
-                  <Form.Control type="email" id="emailField" name="emailField" placeholder="Enter your email address" required ></Form.Control>
+                  <Form.Control type="email" id="emailField" onChange={userEmail} name="emailField" placeholder="Enter your email address" ></Form.Control>
                 </Form.Group>
                 <Form.Group className="mb-3">
-                  <Form.Control type="tel" id="phoneField" name="phoneField" placeholder="Enter your phone number" required ></Form.Control>
+                  <Form.Control type="tel" id="phoneField" onChange={userPhone} name="phoneField" placeholder="Enter your phone number" ></Form.Control>
                 </Form.Group>
                 <Button type="submit" className="btn btn-primary w-100" style={{ backgroundColor: '#153f01', borderColor: '#153f01' }}>Submit</Button>
               </Form>
@@ -209,12 +278,12 @@ function HomePageMain() {
           </Col>
           <Col md={6}>
             <h3 style={{ color: '#153f01' }}>Unlock the Beauty Within your landscape</h3>
-            <p className="text_landscape text-secondary mt-3">
+            <p className="text_landscape mt-3">
               It is a long established fact that a reader will be distracted by the
               readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has
               a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'.
             </p>
-            <p className="text_landscape text-secondary">
+            <p className="text_landscape">
               It is a long established fact that a reader will be distracted
               by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has
               a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'.
@@ -360,8 +429,8 @@ function HomePageMain() {
                           <Image src={`${process.env.PUBLIC_URL}/img/clientimg.webp`} alt="clientimage"></Image>
                           <div className="content">
                             <div className=''>
-                              <h5>Client Name</h5>
-                              <p>Customer Newyork</p>
+                              <h5 className='m-0'>Client Name</h5>
+                              <p className='m-0'>Customer Newyork</p>
                             </div>
                             <div class="bottom-icon">
                               <i class="fa fa-quote-right position-absolute"></i>
@@ -390,8 +459,8 @@ function HomePageMain() {
                           <Image src={`${process.env.PUBLIC_URL}/img/clientimg.webp`}></Image>
                           <div className="content">
                             <div className=''>
-                              <h5>Client Name</h5>
-                              <p>Customer Newyork</p>
+                              <h5 className='m-0'>Client Name</h5>
+                              <p className='m-0'>Customer Newyork</p>
                             </div>
                             <div class="bottom-icon">
                               <i class="fa fa-quote-right position-absolute"></i>
@@ -420,8 +489,8 @@ function HomePageMain() {
                           <Image src={`${process.env.PUBLIC_URL}/img/clientimg.webp`} alt="Clinet image"></Image>
                           <div className="content">
                             <div className=''>
-                              <h5>Client Name</h5>
-                              <p>Customer Newyork</p>
+                              <h5 className='m-0'>Client Name</h5>
+                              <p className='m-0'>Customer Newyork</p>
                             </div>
                             <div class="bottom-icon">
                               <i class="fa fa-quote-right position-absolute"></i>
@@ -450,8 +519,8 @@ function HomePageMain() {
                           <Image src={`${process.env.PUBLIC_URL}/img/clientimg.webp`} alt="client image"></Image>
                           <div className="content">
                             <div className=''>
-                              <h5>Client Name</h5>
-                              <p>Customer Newyork</p>
+                              <h5 className='m-0'>Client Name</h5>
+                              <p className='m-0'>Customer Newyork</p>
                             </div>
                             <div class="bottom-icon">
                               <i class="fa fa-quote-right position-absolute"></i>
