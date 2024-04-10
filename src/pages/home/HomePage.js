@@ -143,92 +143,94 @@ function HomePageMain() {
       {/* Contact number section close */}
 
       {/* Banner section */}
-      <div className="bg-hero py-5">
-        <Container>
-          <Row>
-            <Col md={7}>
-              <div className="top-text">
-                <p className="text-white">
-                  <span className="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734; </span>
-                  Rated 4.6/5.0 by 238 Happy Customers
-                </p>
-                <h3 className="text-white">Value Proposnon Featuring Benefit </h3>
-                <p className="heroText text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                <div className="iconBox">
-                  <p className="text-white mb-0"><Image src={`${process.env.PUBLIC_URL}/img/checked.png`} alt="Check"></Image>Text ever since the 1500s,</p>
-                  <p className="text-white mb-0"><Image src={`${process.env.PUBLIC_URL}/img/checked.png`} alt="Check"></Image>Text ever since the 1500s,</p>
-                  <p className="text-white  mb-0"><Image src={`${process.env.PUBLIC_URL}/img/checked.png`} alt="Check"></Image>Text ever since the 1500s,</p>
-                </div>
-              </div>
-              <div className="text-center text-lg-start shadow-1-strong rounded mt-4 text-black d-md-block d-none">
-                <div className="card">
-                  <div className="card-body">
-                    <Row>
-                      <Col lg={4} className="d-flex justify-content-center align-items-center mb-4 mb-lg-0">
-                        <Image src={`${process.env.PUBLIC_URL}/img/clientimg.webp`} className="rounded-circle img-fluid shadow-1" alt="woman avatar" width="120" height="120" ></Image>
-                      </Col>
-                      <Col lg={8}>
-                        <p className="text-muted fw-light mb-2 text-black"> Id quamapiente molestiae numquam quas, voluptates omnis nulla ea odio quia similique corrupti magnam.</p>
-                        <p className="fw-bold lead mb-2"><strong>Anna Smith</strong></p>
-                        <p className="text-warning m-0">&#9733; &#9733; &#9733; &#9733; &#9734;</p>
-                      </Col>
-                    </Row>
+      <div className='bannerBg'>
+        <div className="bg-hero py-5">
+          <Container>
+            <Row>
+              <Col md={7}>
+                <div className="top-text">
+                  <p className="text-white">
+                    <span className="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734; </span>
+                    Rated 4.6/5.0 by 238 Happy Customers
+                  </p>
+                  <h3 className="text-white">Value Proposnon Featuring Benefit </h3>
+                  <p className="heroText text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                  <div className="iconBox">
+                    <p className="text-white mb-0"><Image src={`${process.env.PUBLIC_URL}/img/checked.png`} alt="Check"></Image>Text ever since the 1500s,</p>
+                    <p className="text-white mb-0"><Image src={`${process.env.PUBLIC_URL}/img/checked.png`} alt="Check"></Image>Text ever since the 1500s,</p>
+                    <p className="text-white  mb-0"><Image src={`${process.env.PUBLIC_URL}/img/checked.png`} alt="Check"></Image>Text ever since the 1500s,</p>
                   </div>
                 </div>
-              </div>
-            </Col>
-            <Col md={5} className="pt-0 formLeft">
-              <Form onSubmit={handelSubmitmain}>
-                <h4 className="text-black">FREE Instant Quote Plus Special Bonus Coupon</h4>
-                <Form.Group className="mb-3 text-black">
-                  <Form.Label>Tree Services Needed</Form.Label>
-                  <Form.Control as="select" id="selectField" name="selectField" onChange={treeServiesNeed}>
-                    <option value="treeCutting">Tree Cutting</option>
-                    <option value="totalCare">Total Care</option>
-                  </Form.Control>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                  <Form.Label className="text-black">How soon do you need our services?</Form.Label><br></br>
-                  <Form.Check inline label="In 2 days" checked={dataFormMain.soon_services_do_you_need === "2days"} onChange={needServices} type="radio" id="radio1" name="radioGroup" value="2days" ></Form.Check>
-                  <Form.Check inline label="In 1 week" checked={dataFormMain.soon_services_do_you_need === "1week"} onChange={needServices} type="radio" id="radio2" name="radioGroup" value="1week" ></Form.Check>
-                  <Form.Check inline label="In 2 weeks" checked={dataFormMain.soon_services_do_you_need === "2weeks"} onChange={needServices} type="radio" id="radio3" name="radioGroup" value="2weeks" ></Form.Check>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                  <Form.Control type="text" onChange={userName} id="nameField" value={dataFormMain.userName} name="nameField" placeholder="Enter your name" ></Form.Control>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                  <Form.Control type="email" id="emailField" onChange={userEmail} value={dataFormMain.userEmail} name="emailField" placeholder="Enter your email address" ></Form.Control>
-                </Form.Group>
-                <Form.Group className="mb-3">
-                  <Form.Control type="tel" id="phoneField" onChange={userPhone} value={dataFormMain.userPhoneNumber} name="phoneField" placeholder="Enter your phone number" ></Form.Control>
-                </Form.Group>
-                <Button type="submit" className="btn btn-primary w-100" style={{ backgroundColor: '#153f01', borderColor: '#153f01', height: "40px" }}>
-                  {loading ? (
-                    <Spinner animation="border" size="sm" />
-                  ) : (
-                    <span>Submit</span>
-                  )}
-                </Button>
-              </Form>
-              <div className="text-center text-lg-start shadow-1-strong rounded mt-4 text-black d-md-none">
-                <div className="card">
-                  <div className="card-body">
-                    <Row>
-                      <Col lg={4} className="d-flex justify-content-center align-items-center mb-4 mb-lg-0">
-                        <Image src={`${process.env.PUBLIC_URL}/img/clientimg.webp`} className="rounded-circle img-fluid shadow-1" alt="woman avatar" width="120" height="120" ></Image>
-                      </Col>
-                      <Col lg={8}>
-                        <p className="text-muted fw-light mb-2 text-black"> Id quamapiente molestiae numquam quas, voluptates omnis nulla ea odio quia similique corrupti magnam.</p>
-                        <p className="fw-bold lead mb-2"><strong>Anna Smith</strong></p>
-                        <p className="text-warning m-0">&#9733; &#9733; &#9733; &#9733; &#9734;</p>
-                      </Col>
-                    </Row>
+                <div className="text-center text-lg-start shadow-1-strong rounded mt-4 text-black d-md-block d-none">
+                  <div className="card">
+                    <div className="card-body">
+                      <Row>
+                        <Col lg={4} className="d-flex justify-content-center align-items-center mb-4 mb-lg-0">
+                          <Image src={`${process.env.PUBLIC_URL}/img/clientimg.webp`} className="rounded-circle img-fluid shadow-1" alt="woman avatar" width="120" height="120" ></Image>
+                        </Col>
+                        <Col lg={8}>
+                          <p className="text-muted fw-light mb-2 text-black"> Id quamapiente molestiae numquam quas, voluptates omnis nulla ea odio quia similique corrupti magnam.</p>
+                          <p className="fw-bold lead mb-2"><strong>Anna Smith</strong></p>
+                          <p className="text-warning m-0">&#9733; &#9733; &#9733; &#9733; &#9734;</p>
+                        </Col>
+                      </Row>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Col>
-          </Row>
-        </Container>
+              </Col>
+              <Col md={5} className="pt-0 formLeft">
+                <Form onSubmit={handelSubmitmain}>
+                  <h4 className="text-black">FREE Instant Quote Plus Special Bonus Coupon</h4>
+                  <Form.Group className="mb-3 text-black">
+                    <Form.Label>Tree Services Needed</Form.Label>
+                    <Form.Control as="select" id="selectField" name="selectField" onChange={treeServiesNeed}>
+                      <option value="treeCutting">Tree Cutting</option>
+                      <option value="totalCare">Total Care</option>
+                    </Form.Control>
+                  </Form.Group>
+                  <Form.Group className="mb-3">
+                    <Form.Label className="text-black">How soon do you need our services?</Form.Label><br></br>
+                    <Form.Check inline label="In 2 days" checked={dataFormMain.soon_services_do_you_need === "2days"} onChange={needServices} type="radio" id="radio1" name="radioGroup" value="2days" ></Form.Check>
+                    <Form.Check inline label="In 1 week" checked={dataFormMain.soon_services_do_you_need === "1week"} onChange={needServices} type="radio" id="radio2" name="radioGroup" value="1week" ></Form.Check>
+                    <Form.Check inline label="In 2 weeks" checked={dataFormMain.soon_services_do_you_need === "2weeks"} onChange={needServices} type="radio" id="radio3" name="radioGroup" value="2weeks" ></Form.Check>
+                  </Form.Group>
+                  <Form.Group className="mb-3">
+                    <Form.Control type="text" onChange={userName} id="nameField" value={dataFormMain.userName} name="nameField" placeholder="Enter your name" ></Form.Control>
+                  </Form.Group>
+                  <Form.Group className="mb-3">
+                    <Form.Control type="email" id="emailField" onChange={userEmail} value={dataFormMain.userEmail} name="emailField" placeholder="Enter your email address" ></Form.Control>
+                  </Form.Group>
+                  <Form.Group className="mb-3">
+                    <Form.Control type="tel" id="phoneField" onChange={userPhone} value={dataFormMain.userPhoneNumber} name="phoneField" placeholder="Enter your phone number" ></Form.Control>
+                  </Form.Group>
+                  <Button type="submit" className="btn btn-primary w-100" style={{ backgroundColor: '#153f01', borderColor: '#153f01', height: "40px" }}>
+                    {loading ? (
+                      <Spinner animation="border" size="sm" />
+                    ) : (
+                      <span>Submit</span>
+                    )}
+                  </Button>
+                </Form>
+                <div className="text-center text-lg-start shadow-1-strong rounded mt-4 text-black d-md-none">
+                  <div className="card">
+                    <div className="card-body">
+                      <Row>
+                        <Col lg={4} className="d-flex justify-content-center align-items-center mb-4 mb-lg-0">
+                          <Image src={`${process.env.PUBLIC_URL}/img/clientimg.webp`} className="rounded-circle img-fluid shadow-1" alt="woman avatar" width="120" height="120" ></Image>
+                        </Col>
+                        <Col lg={8}>
+                          <p className="text-muted fw-light mb-2 text-black"> Id quamapiente molestiae numquam quas, voluptates omnis nulla ea odio quia similique corrupti magnam.</p>
+                          <p className="fw-bold lead mb-2"><strong>Anna Smith</strong></p>
+                          <p className="text-warning m-0">&#9733; &#9733; &#9733; &#9733; &#9734;</p>
+                        </Col>
+                      </Row>
+                    </div>
+                  </div>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </div>
       </div>
       {/* End Banner section */}
 
@@ -412,7 +414,7 @@ function HomePageMain() {
 
       {/* Slider sec */}
 
-      <div className="slider-section py-5">
+      <div className="slider-section py-5 mt-5">
         <Container>
           <Row>
             <Col md={3} className="left-content mt-4">
@@ -551,7 +553,7 @@ function HomePageMain() {
 
       {/* Section FAQ */}
 
-      <div className="faQwrapper py-5 my-5">
+      <div className="faQwrapper py-5 ">
         <Container>
           <Row>
             <Col md={5} className="d-flex align-items-center">

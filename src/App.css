@@ -54,18 +54,26 @@ h5 {
 }
 
 .bg-hero {
-  background-image: url('../public/img/banner.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+	background-image: url(http://localhost:3000/static/media/banner.71e9168a69a0d2687cf2.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 100px 100px 0 0;
 }
-
+.bannerBg {
+	background-color: #254721;
+}
 .iconBox img {
   width: 15px;
   height: auto;
   margin-right: 10px;
 }
-
+.slider-image-section {
+	border-radius: 0 0 100px 100px;
+}
+.slider-section {
+	border-radius: 100px;
+}
 .formLeft form {
   padding: 20px;
   background: #fff;
