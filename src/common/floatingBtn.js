@@ -9,8 +9,7 @@ function FloatingBtn() {
                     <Row>
                         <Col md={12} className='text-center'>
                             <a href="tel:4150000000" className="btn btn-secondary plant px-5 py-2 mt-4 text-center" style={{ backgroundColor: '#153f01' }}>
-                                <span></span>
-                                (415) 000-0000
+                                Click to call
                             </a>
                         </Col>
                     </Row>
