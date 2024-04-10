@@ -1,6 +1,6 @@
 import axios from "axios";
 const http = axios.create({
-    baseURL: "http://localhost:8000/api",
+    baseURL: "https://citytreebackend.satlujwebsolution.com/",
     headers: {
         'Content-Type': 'application/json',
     }
